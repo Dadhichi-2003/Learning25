@@ -1,0 +1,9 @@
+.header{
+    position: fixed;
+    top: 10px;
+    background-color: brown;
+    color: azure;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+}

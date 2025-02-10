@@ -1,0 +1,20 @@
+.aboutUs{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   margin: 50px;
+    gap: 50px;
+}
+
+.paragraph{
+    width: 50%;
+    text-align: justify;
+}
+
+.aboutUs>img{
+    border: 1px solid black;
+    width: 50%;
+
+    height: 400px;
+}

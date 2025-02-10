@@ -1,0 +1,17 @@
+.navbar{
+    background-color: aqua;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 20px 30px;
+    gap:20px;
+    overflow: hidden;
+    padding-right: 50px;
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+}

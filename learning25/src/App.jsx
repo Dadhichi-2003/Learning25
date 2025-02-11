@@ -18,30 +18,27 @@ import UseStateDemo2 from './components/UseStateDemo2'
 import InputDemo1 from './components/InputDemo1'
 import InputDemo2 from './components/InputDemo2'
 import InputDemo3 from './components/InputDemo3'
+import { Route, Routes } from 'react-router-dom'
+import HotstartWelcome from './components/hotstar/HotstartWelcome'
+import HotstartHome from './components/hotstar/HotstartHome'
+import HotstarMovies from './components/hotstar/HotstarMovies'
+import Error404 from './components/hotstar/Error404'
 
 function App() {
    
 
   return (
     <>
-    <InputDemo3/>
-    <InputDemo2/> 
-    {/* <InputDemo1/> */}
-    {/* <UseStateDemo1/> */}
-    {/* <UseStateDemo2/> */}
-    {/* <Header/>
-    <Content/>
-    <Footer/>
-   */}
 
-      {/* <Navbar/>
-      <AboutUs/> */}
-      {/* <ArrayDemo1/> */}
-      {/* <ArrayDemo2/> */}
-      {/* <ArrayDemo3/> */}
-      {/* <ArrayDemo4/> */}
-      {/* <ArrayDemo5/>
-      <ArrayDemo6/> */}
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<HotstartWelcome/>}/>
+        <Route path="/home" element={<HotstartHome/>}/>
+        <Route path="/movies" element={<HotstarMovies/>}/>
+        <Route path="/*" element={<Error404/>}/>
+      </Routes>
+
+
     </>
   )
 }

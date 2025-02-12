@@ -14,6 +14,10 @@ function Navbar() {
     <div class="navbar-nav">
       <Link class="nav-item nav-link active" to="/home">Home <span class="sr-only">(current)</span></Link>
       <Link class="nav-item nav-link" to="/movies">Movies</Link>
+      <Link class="nav-item nav-link" to="/formdemo1">FormDemo1</Link>
+      <Link class="nav-item nav-link" to="/formdemo2">FormDemo2</Link>
+      <Link class="nav-item nav-link" to="/formdemo3">FormDemo3</Link>
+      <Link class="nav-item nav-link" to="/formdemo4">FormDemo4</Link>
 
     </div>
   </div>

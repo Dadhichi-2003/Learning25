@@ -10,7 +10,7 @@ const InputDemo1 = () => {
     }
 
   return (
-    <div>
+    <div style={{textAlign:"center"}}>
       <h1>INPUT DEMO 1</h1>
 
         <input type='text' placeholder='enter your name' onChange={(e)=>{nameHandler(e)}}/>

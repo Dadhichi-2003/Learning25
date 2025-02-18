@@ -1,0 +1,50 @@
+.main{
+    background-color: #1F1F1F;
+    height: 100%;
+}
+
+.box{
+    background-color: #303030;
+    padding: 5rem;
+    margin-bottom: 1rem;
+}
+
+.box:hover{
+    background-color: #5C5C5C;
+
+}
+
+.p-text{
+    font-size: 10px;
+}
+
+.watchlist {
+
+    border-radius: 40px;
+    color: black;
+    text-align: start;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-weight: 400;
+}
+
+.Title{
+  
+   
+    border-left: 10px solid;
+    border-color: #FFC107;
+    padding-left: 10px;
+   border-radius: 10px;
+
+}
+
+.details>p{
+    font-weight: 500;
+    border-top: 0.5px solid black;
+    padding-top: 5px ;
+   
+    width: 75%;
+    
+}

@@ -24,6 +24,7 @@ function Navbar() {
       <Link class="nav-item nav-link" to="/formdemo8">FormDemo8</Link> */}
       <Link class="nav-item nav-link" to="/studentform">Student-Form</Link>
       <Link class="nav-item nav-link" to="/apidemo1">apidemo1</Link>
+      <Link class="nav-item nav-link" to="/searchMovie">Search-Movie</Link>
     </div>
   </div>
 </nav>

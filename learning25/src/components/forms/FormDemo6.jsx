@@ -2,77 +2,95 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 const FormDemo6 = () => {
-  const { register, handleSubmit, formState:{errors} } = useForm();
-  console.log("errors",errors)
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  console.log("errors", errors)
   const submitHandler = (data) => {
     console.log(data);
   };
 
-  const validationSchema ={
-        nameValidator:{
-            required : {
-                value:true,
-                message :"name is required",    
-            },
+  const validationSchema = {
+    nameValidator: {
+      required: {
+        value: true,
+        message: "name is required",
+      },
 
 
-        },
-        ageValidator:{
-            required:{
-                value:true,
-                message:"age is required",
-            },
-            min:{
-                value:18,
-                message:"minimun age is 18"
-            },
-            max:{
-                value:30,
-                message:"maximum age 30"
-            }
-        },
-        passwordValidator:{
-            required:{
-                value:true,
-                message:"age is required",
-            },
-            maxLength:{
-                value:16,
-                message:"maximum leghth is 16 character"
-            },
-            minLength:{
-                value:8,
-                message:"minimum length is 8 character",
-            }
+    },
+    ageValidator: {
+      required: {
+        value: true,
+        message: "age is required",
+      },
+      min: {
+        value: 18,
+        message: "minimun age is 18"
+      },
+      max: {
+        value: 30,
+        message: "maximum age 30"
+      }
+    },
+    passwordValidator: {
+      required: {
+        value: true,
+        message: "age is required",
+      },
+      maxLength: {
+        value: 16,
+        message: "maximum leghth is 16 character"
+      },
+      minLength: {
+        value: 8,
+        message: "minimum length is 8 character",
+      }
+    },
+    refCodeValidator: {
+      required: {
+        value: true,
+        message: "Referel code is required",
+      },
+      validate: {
+        value: (value) => {
+          return value == "royal" || "Invalid ref code"
         }
+      }
+    }
 
 
   }
-  
+
   return (
     <div style={{ textAlign: "center", height: "100%" }}>
       <h1>Hiring</h1>
       <form onSubmit={handleSubmit(submitHandler)}>
         <div>
           <label>Name</label>
-          <input type="text" placeholder="name" {...register("name",validationSchema.nameValidator)} />
+          <input type="text" placeholder="name" {...register("name", validationSchema.nameValidator)} />
         </div>
-        <span style={{color:"red"}}>
-            {errors.name && errors.name.message}
+        <span style={{ color: "red" }}>
+          {errors.name && errors.name.message}
         </span>
         <div>
           <label>Age</label>
-          <input type="number" placeholder="age" {...register("age",validationSchema.ageValidator)} />
-          <span style={{color:"red"}}>
+          <input type="number" placeholder="age" {...register("age", validationSchema.ageValidator)} />
+          <span style={{ color: "red" }}>
             {errors.age?.message}
-        </span>
+          </span>
         </div>
         <div>
           <label>PassWord</label>
-          <input type="text" placeholder="PAssword" {...register("password",validationSchema.passwordValidator )} />
-          <span style={{color:"red"}}>
+          <input type="text" placeholder="PAssword" {...register("password", validationSchema.passwordValidator)} />
+          <span style={{ color: "red" }}>
             {errors.password?.message}
-        </span>
+          </span>
+        </div>
+        <div>
+          <label>Refcode</label>
+          <input type="text"{...register("refcode")} />
+          <span style={{ color: "red" }}>
+            {errors.refcode?.value}
+          </span>
         </div>
         <div>
           <label>Skills</label>
@@ -89,7 +107,7 @@ const FormDemo6 = () => {
         </div>
         <div>
           <label>GENDER :</label>
-          <br />                                                    
+          <br />
           <label>
             <input type="radio" value="male" {...register("gender")} /> Male
           </label>

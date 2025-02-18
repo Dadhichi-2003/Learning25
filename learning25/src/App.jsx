@@ -33,6 +33,7 @@ import FormDemo6 from './components/forms/FormDemo6'
 import FormDemo7 from './components/forms/FormDemo7'
 import FormDemo8 from './components/forms/FormDemo8'
 import StudentDetailForm from './components/forms/StudentDetailForm'
+import ApiDemo1 from './components/apis/ApiDemo1'
 
 function App() {
    
@@ -55,11 +56,13 @@ function App() {
         <Route path="/formdemo7" element={<FormDemo7/>}/>
         <Route path="/formdemo8" element={<FormDemo8/>}/>
         <Route path="/studentform" element={<StudentDetailForm/>}/>
+        <Route path="/apidemo1" element={<ApiDemo1/>}/>
         <Route path="/*" element={<Error404/>}/>
       </Routes>
       
     
      
+    
 
     </>
   )

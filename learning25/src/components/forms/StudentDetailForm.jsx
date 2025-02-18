@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import "../../assets/StudentDetailForm.css"
 // form with validation
 const StudentDetailForm = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    
 
+    const [output,setOutput] =  useState({});
+    const [isSubmit,setIsSubmit] = useState(false);
     console.log(errors)
 
     const submitHandler = (data) => {
         console.log(data);
+        setOutput(data)
+        setIsSubmit(true)
     }
 
     const ValidationSchema = {
@@ -63,7 +68,18 @@ const StudentDetailForm = () => {
                 value:50,
                 message:"minimum 50 words required"
             }
-        }
+        },
+        refCodeValidator: {
+            required: {
+              value: true,
+              message: "Referel code is required",
+            },
+            validate:  (value) => {
+                return value == "royal" || "Invalid ref code"
+              }
+            
+          }
+      
 
     }
 
@@ -96,6 +112,13 @@ const StudentDetailForm = () => {
                     <input type='number' placeholder='Enter your percentage' {...register("percentage")}/>
                 </div>
                 <div>
+                <label>Refcode</label>
+                <input type="text"{...register("refcode",ValidationSchema.refCodeValidator)} />
+            <span style={{ color: "red" }}>
+            {errors.refcode?.message}
+          </span>
+        </div>
+                <div>
                     <label>Hobbies:</label>
                     Acting    <input type='checkbox' {...register("hobbies")}/> 
                     Dancing    <input type='checkbox' {...register("hobbies")}/> 
@@ -122,9 +145,27 @@ const StudentDetailForm = () => {
                     <span> {errors.introduction?.message}</span>
                 </div>
                 <div>
+                    <label>color</label>
+                    <input type="color" {...register("color")}/>
+                </div>
+                <div>
                     <button type='submit'>Submit</button>
                 </div>
             </form>
+
+
+            {
+                isSubmit==true?(
+                <div style={{color:output.color}}> 
+                    <h3>Name ={output.name}</h3>
+                    <h3>Age ={output.age}</h3>
+                    <h3>DOB ={output.DOB}</h3>
+                    <h3>Contact={output.contact}</h3>
+                    <h3>Percentage % ={output.percentage}</h3>
+           
+                </div>)
+                :""
+            }
         </div>
     )
 }

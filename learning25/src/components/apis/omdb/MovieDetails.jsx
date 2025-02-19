@@ -1,33 +1,46 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import "../../../assets/Moviedetail.css"
 
 const MovieDetails = () => {
 
   const id = useParams().id
-  const [detail, setdetail] = useState(()=>{
-    const getMovieDetail = async () => {
-      try{
-      const res = await axios.get(`http://www.omdbapi.com/?apikey=77285514&i=${id}`)
-      console.log(res.data);
-      setdetail(res.data);
-      }
-      catch(error){
-        console.error("Data not coming",error)
-      }
-    }
 
-    getMovieDetail();
-    return{};
-  });
+  const [detail,setdetail] = useState({})
+  
+  const getMovieDetails = async()=>{
+    const res =  await axios.get(`http://www.omdbapi.com/?apikey=77285514&i=${id}`)
+    setdetail(res.data)
+  }
+  
+  useEffect(()=>{
+    getMovieDetails();
+  },[])
 
   
+  //using useState Method
+  // const [detail, setdetail] = useState(()=>{
+  //   const getMovieDetail = async () => {
+  //     try{
+  //     const res = await axios.get(`http://www.omdbapi.com/?apikey=77285514&i=${id}`)
+  //     console.log(res.data);
+  //     setdetail(res.data);
+  //     }
+  //     catch(error){
+  //       console.error("Data not coming",error)
+  //     }
+  //   }
+
+  //   getMovieDetail();
+  //   return{};
+  // });
+
 
   return (
     <>
       <div className='main text-white'>
-        {/* <button className='btn btn-dark my-5' onClick={() => { getMovieDetail() }}>CLICK </button> */}
+        {/* <button className='btn btn-dark my-5' onClick={() => { getMovieDetails() }}>CLICK </button> */}
         <div className="container ">
           <div className='p-4 d-flex justify-content-between '>
             <div>
